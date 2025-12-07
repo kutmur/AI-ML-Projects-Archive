@@ -1,6 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[codz]
+*.py[cod]
 *$py.class
 
 # C extensions
@@ -205,3 +205,55 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+*.DS_Store
+.DS_Store
+Thumbs.db
+
+# Büyük dosyalar (model weights, veri setleri)
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.ckpt
+*.weights
+*.model
+*.bin
+
+# Büyük veri dosyaları
+*.csv
+*.json
+*.xml
+*.parquet
+*.feather
+*.arrow
+*.avro
+
+# Görsel/Video dosyaları (büyük boyutlular)
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.flv
+
+# Arşiv dosyaları
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Geçici dosyalar
+*.tmp
+*.temp
+*.swp
+*.swo
+*~

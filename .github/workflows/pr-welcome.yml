@@ -1,0 +1,38 @@
+name: PR Karsilama Botu
+on: [pull_request]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  welcome-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hosgeldin Mesaji
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const user = context.payload.pull_request.user.login;
+            const body = `
+            ## 🚀 Selam @${user}! Eline Sağlık 👋
+            
+            **Türkiye Yapay Zeka ve Makine Öğrenmesi Topluluğu**'na katkı sağladığın için teşekkürler! 
+            Bot olarak PR'ını teslim aldım. 🤖
+            
+            Admin arkadaşlarımız kodunu yakında inceleyip onaylayacaklar. O sırada sen şunları kontrol edebilir misin?
+            
+            ✅ **Kontrol Listesi:**
+            - [ ] **Klasör:** Projeni doğru ana başlığın (örn: Supervised, NLP) altına ekledin mi?
+            - [ ] **README:** Projenin içine ne yaptığını anlatan kısa bir \`README.md\` dosyası koydun mu?
+            - [ ] **Temiz Kod:** Gereksiz dosyaları (pycache, venv vs.) temizledin mi?
+            
+            _Her şey tamamsa arkana yaslan, incelemeyi bekle. Aramıza hoş geldin!_ 
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            })
