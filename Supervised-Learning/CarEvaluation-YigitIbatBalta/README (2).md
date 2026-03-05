@@ -1,35 +1,52 @@
-Car Evaluation - Decision Tree
+# Car Evaluation - Decision Tree
 
-Bu projede car_evaluation.csv veri seti kullanılarak bir Decision Tree modeli ile araba değerlendirme sınıflandırması yapılmıştır. Veri setindeki kategorik değişkenler OrdinalEncoder ile sayısal değerlere dönüştürülmüştür ve modelin performansı test edilmiştir.
+## Hakkında
 
-Kullanılan Kütüphaneler
+Bu projede **car_evaluation.csv** veri seti kullanılarak araba değerlendirme sınıflandırması yapılmıştır.
+Model olarak **Decision Tree Classifier** kullanılmıştır. Veri setindeki kategorik değişkenler **OrdinalEncoder** ile sayısal değerlere dönüştürülmüş ve modelin performansı test edilmiştir.
 
-- pandas
-- numpy
-- sklearn
-- matplotlib
-- seaborn
+## Veri Seti
 
-Yapılan Adımlar
+Projede **UCI Car Evaluation Dataset** kullanılmıştır.
 
-1. Veri seti pandas ile yüklendi.
-2. Sütun isimleri düzenlendi.
-3. "doors" ve "persons" sütunlarındaki "more" ve "5more" değerleri sayısal değerlere çevrildi.
-4. Veri train-test split ile eğitim ve test olarak ayrıldı.
-5. Kategorik sütunlar OrdinalEncoder ile encode edildi.
-6. DecisionTreeClassifier modeli oluşturuldu.
-7. GridSearchCV kullanılarak en iyi hiperparametreler bulundu.
-8. Model test verisi üzerinde değerlendirildi.
+Veri setinde bulunan başlıca özellikler:
 
-Model
+* buying → araba satın alma maliyeti
+* maint → bakım maliyeti
+* doors → kapı sayısı
+* persons → taşıma kapasitesi
+* lug_boot → bagaj boyutu
+* safety → güvenlik seviyesi
 
-- Model: Decision Tree Classifier
-- Hyperparameter tuning: GridSearchCV
+Hedef değişken:
 
-Sonuç
+* class → araba değerlendirme sonucu (unacc, acc, good, vgood)
 
-Modelin test doğruluk değeri:
+## Kurulum
 
-Accuracy: 0.9398
+Projeyi çalıştırmak için gerekli Python kütüphanelerini yükleyin:
 
-Bu sonuç Decision Tree modelinin veri seti üzerinde oldukça iyi bir performans verdiğini göstermektedir.
+pip install -r requirements.txt
+
+Gerekli kütüphaneler:
+
+* pandas
+* numpy
+* scikit-learn
+* matplotlib
+* seaborn
+
+## Sonuçlar
+
+Decision Tree modeli ile yapılan sınıflandırma sonucunda model yaklaşık **%93.98 doğruluk oranı** elde etmiştir.
+
+Model değerlendirmesi sırasında:
+
+* veri train ve test olarak ayrılmıştır
+* kategorik değişkenler encode edilmiştir
+* Decision Tree Classifier modeli eğitilmiştir
+* model doğruluğu test edilmiştir
+
+## Geliştirici
+
+Yiğit İbat Balta
